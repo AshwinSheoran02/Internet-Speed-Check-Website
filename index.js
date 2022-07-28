@@ -1,12 +1,12 @@
 const  button = document.querySelector('button')
 
-const TEST_COUNT = 1
+const TEST_COUNT = 5
 const progress = document.querySelector('.progress')
 const speedText = document.querySelector('.speed-text')
 let test_results = []
 
-var imageAddr = "https://4k-uhd.nl/wp-content/uploads/2018/08/4K-3840x2160-Wallpaper-Uitzicht-5.jpg"
-var size = 5739426 ; //image size in bytes
+var imageAddr = "https://raw.githubusercontent.com/AshwinSheoran02/Internet-Speed-Check-Website/main/test.jpg"
+var size = 4362493 ; //image size in bytes
 
 //let startTime = Date.now()
 function loadImage(){
