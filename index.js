@@ -1,6 +1,6 @@
 const  button = document.querySelector('button')
 
-const TEST_COUNT = 100
+const TEST_COUNT = 20
 const progress = document.querySelector('.progress')
 const speedText = document.querySelector('.speed-text')
 let test_results = []
