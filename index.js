@@ -32,7 +32,7 @@ function loadImage(){
 async function getLoadSpeed(){
     let loadTime = await loadImage()
     //if(loadTime < 1) loadTime = 1
-    let speed_bps = size / (loadTime * 1000)
+    let speed_bps = size / (loadTime / 1000)
     let speed_kbps = speed_bps / 1024
     let speed_Mbps = speed_kbps / 1024
 
