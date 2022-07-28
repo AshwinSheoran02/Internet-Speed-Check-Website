@@ -1,6 +1,6 @@
 const  button = document.querySelector('button')
 const size = 4362493 * 8
-const TEST_COUNT = 500
+const TEST_COUNT = 5
 const progress = document.querySelector('.progress')
 const speedText = document.querySelector('.speed-text')
 
