@@ -1,36 +1,42 @@
 const  button = document.querySelector('button')
-const size = 4362493 * 8
-const TEST_COUNT = 5
+
+const TEST_COUNT = 1
 const progress = document.querySelector('.progress')
 const speedText = document.querySelector('.speed-text')
-
 let test_results = []
 
-function loadImage(){
-    return new Promise((resolve, reject) => {
-        let image = new Image()
-        image.src = "./test.jpg?" + parseInt(Math.random() * 10000)
-        let startTime = Date.now()
-    
-        image.onload = function(){
-            let endTime = Date.now()
-            resolve(endTime - startTime)
-        }
+var imageAddr = "https://4k-uhd.nl/wp-content/uploads/2018/08/4K-3840x2160-Wallpaper-Uitzicht-5.jpg"
+var size = 5739426 ; //image size in bytes
 
-        image.onerror = function(err){
-            reject(err)
-        }
-    })
+//let startTime = Date.now()
+function loadImage(){
+        return new Promise((resolve, reject) => {
+            let startTime = Date.now()
+
+            var download = new Image();
+            download.src = imageAddr;
+            download.onload = function(){
+                let endTime = Date.now()
+                console.log(endTime - startTime);
+                resolve(endTime - startTime)
+            }
+            download.onerror = function(err){
+                reject(err)
+            }
+            var cacheBuster = "?nnn=" + startTime;
+            download.src = imageAddr + cacheBuster;
+            })
 }
+
 
 async function getLoadSpeed(){
     let loadTime = await loadImage()
-    if(loadTime < 1) loadTime = 1
+    //if(loadTime < 1) loadTime = 1
     let speed_bps = size / loadTime
     let speed_kbps = speed_bps / 1024
     let speed_Mbps = speed_kbps / 1024
 
-    return speed_Mbps
+    return speed_kbps
 }
 
 function getAvgSpeed(){
@@ -44,6 +50,6 @@ button.addEventListener('click', async function(){
         let speed = await getLoadSpeed()
         test_results.push(speed)
         progress.style.width = ((i + 1) / TEST_COUNT * 100) + '%'
-        speedText.innerText = getAvgSpeed().toFixed(2) + ' Mbps'
+        speedText.innerText = getAvgSpeed().toFixed(2) + ' kbps'
     }
 })
