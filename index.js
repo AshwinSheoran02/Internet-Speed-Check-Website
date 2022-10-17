@@ -5,7 +5,7 @@ const progress = document.querySelector('.progress')
 const speedText = document.querySelector('.speed-text')
 let test_results = []
 
-var imageAddr = "https://drive.google.com/u/1/uc?id=15fzJ1ZRK0I3s5dIj2cYr_gbau9PmiJzq&export=download"
+var imageAddr = "https://raw.githubusercontent.com/AshwinSheoran02/Internet-Speed-Check-Website/main/test.jpg"
 var size = 4362493 * 8 ; //image size in bytes
 
 //let startTime = Date.now()
